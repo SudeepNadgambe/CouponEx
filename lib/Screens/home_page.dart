@@ -1,27 +1,45 @@
+import 'package:coupon_ex/Screens/login_page.dart';
+import 'package:coupon_ex/app_data/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:coupon_ex/Widgets_and_designs/Side_Bar.dart';
+import 'package:coupon_ex/Widgets_and_designs/Bottom_Bar.dart';
+import 'package:coupon_ex/Screens/search_page.dart';
 
 
-class Home_page extends StatefulWidget {
-  const Home_page({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _Home_pageState createState() => _Home_pageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _Home_pageState extends State<Home_page> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions:[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),),);
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),),);
+            },
+          )
+        ],
+        centerTitle: true,
         title: Text(
           'CouponEx',
-          style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            col
-          ),
+          style: kScreen_title.copyWith(fontSize: 30),
         ),
       ),
+      drawer: SideBar(),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }

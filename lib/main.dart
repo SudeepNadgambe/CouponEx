@@ -1,3 +1,4 @@
+import 'package:coupon_ex/Screens/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:coupon_ex/Screens/home_page.dart';
 
@@ -12,10 +13,11 @@ class CouponEx extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.light().copyWith(
-        primaryColor: Color(0xFF1BDFB9),
+        primaryColor: Color(0xFFFF8C31),
         scaffoldBackgroundColor: Color(0xFFFFFFFF),
+        brightness: Brightness.light,
       ),
-      home: Home_page(),
+      home: HomePage(),
     );
   }
 }
